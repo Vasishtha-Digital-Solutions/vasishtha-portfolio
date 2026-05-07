@@ -1,0 +1,346 @@
+// ──────────────────────────────────────────────────────────────
+// Vasishtha Digital Solutions — Home Page Content Data
+// Source: design_handoff_vasishtha_landing, re-skinned black + orange
+// Palette: #000 + #F18F00 (orange) + #FFB24C (amber) + white
+// ──────────────────────────────────────────────────────────────
+
+export const homeData = {
+  // ── Shared brand palette ────────────────────────────
+  palette: {
+    bg: "#000000",         // page base
+    bg2: "#050507",        // CTA section bg
+    bg3: "#07070a",        // service card bg
+    card: "#0a0a0c",       // portfolio card bg
+    cardHover: "#0a0a0f",  // service card hover
+
+    orange: "#F18F00",         // primary accent
+    orangeDeep: "#CC7700",     // pressed / darker
+    orangeSoft: "rgba(241,143,0,0.12)",
+    amber: "#FFB24C",          // secondary accent (gradient pair)
+    amberSoft: "rgba(255,178,76,0.12)",
+
+    white: "#ffffff",
+    text: "rgba(255,255,255,0.92)",
+    textDim: "rgba(255,255,255,0.65)",
+    textMuted: "rgba(255,255,255,0.40)",
+    textFaint: "rgba(255,255,255,0.28)",
+
+    border: "rgba(255,255,255,0.08)",
+    borderStrong: "rgba(255,255,255,0.15)",
+    line: "rgba(255,255,255,0.06)",
+  },
+
+  // ── Top bar (fixed, no menu links) ──────────────────
+  // Position: logo LEFT · CTA RIGHT (conventional)
+  topBar: {
+    logo: {
+      src: "/vasishtha-logo.png",
+      alt: "Vasishtha Digital Solutions",
+      to: "/",
+    },
+    cta: {
+      label: "Book a Call",
+      to: "/contact",
+    },
+  },
+
+  // ── Hero ────────────────────────────────────────────
+  hero: {
+    eyebrow: {
+      label: "Now booking · Q3 2026",
+    },
+    // Headline words — masked entrance; `accent: true` gets the orange/amber gradient
+    headline: [
+      { text: "We Turn" },
+      { text: "Digital Noise" },
+      { text: "Into" },
+      { text: "Business", accent: true },
+      { text: "Growth." },
+    ],
+    subtext:
+      "We run the social, ship the software, and book the creators. One accountable studio — so your growth doesn't wait on three agencies to sync.",
+    primaryCTA: { label: "Start Your Growth Sprint", to: "/contact" },
+    secondaryCTA: { label: "See the work", scrollTo: "portfolio" },
+  },
+
+  // ── Marquee strip (below hero) ──────────────────────
+  marquee: [
+    "Sri Rudra",
+    "Lumeria Skincare",
+    "One Day Stories",
+    "TownCart",
+    "Yellow Wall Interiors",
+    "Flexcellence",
+    "Handover Experts",
+    "Sufala",
+    "Ramesh Makeup Studio",
+    "Now booking Q3 2026",
+    "Replying in ~1 business day",
+  ],
+
+  // ── Portfolio (11 cards — 3 featured col-span-2) ────
+  // Order is tuned for an ASYMMETRIC bento. In a 4-col grid, auto-flow
+  // places items row-by-row. Pattern below places featured tiles at
+  // alternating sides of each row:
+  //   Row 1 ── [  F1  ][S][S]       (featured LEFT)
+  //   Row 2 ── [S][S][  F2  ]       (featured RIGHT)
+  //   Row 3 ── [  F3  ][S][S]       (featured LEFT)
+  //   Row 4 ── [S][S]
+  portfolio: {
+    kicker: "Selected Work · 2024–2026",
+    heading: "Campaigns that moved numbers.",
+    filters: ["All", "Social Media", "Software", "Influencer"],
+    projects: [
+      // ── Row 1 ── Featured first (₹3Cr hook as the opener)
+      // Sri Rudra Franchise moved to Row 3 (pos 9) so the two Sri Rudra
+      // cards are maximally separated in the grid.
+      {
+        id: "sri-rudra-ganesh",
+        title: "Sri Rudra",
+        caseHref: "/projects/sri-rudra-influencer",
+        external: false,
+        category: "Influencer",
+        tag: "Ganesh Chaturthi",
+        tagline: "Festive influencer campaign that delivered big.",
+        metric: "₹3 Cr",
+        metricFoot: "on ₹3L spend · 4M+ reach",
+        featured: true, // ★ F1 — cols 1-2
+        tone: "orange",
+        image: "/assets/sri-rudra/ganesh-idol.png",
+      },
+      {
+        id: "handover-expert",
+        title: "Handover Experts",
+        caseHref: "/projects/handover-expert",
+        external: false,
+        category: "Influencer",
+        tag: "New Category",
+        tagline: "Making people realize a service they didn't know they needed.",
+        metric: "New category",
+        metricFoot: "built in Hyderabad",
+        featured: false,
+        tone: "amber",
+        // TEMP: replace with real hero from graphic designer
+        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=1200&fit=crop&auto=format&q=80",
+      },
+      {
+        id: "lumeria-social",
+        title: "Lumeria Skincare",
+        caseHref: "/projects/lumeria",
+        external: false,
+        category: "Social Media",
+        tag: "Launch Buzz",
+        tagline: "Audience built before the first sale.",
+        metric: "3–4 mo",
+        metricFoot: "pre-launch runway",
+        featured: false,
+        tone: "amber",
+        // TEMP: skincare lifestyle placeholder — product bottles are reserved
+        // for the Lumeria case study, so using a generic beauty flatlay here.
+        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&h=1200&fit=crop&auto=format&q=80",
+      },
+
+      // ── Row 2 ── Two standards + Featured on the right
+      {
+        id: "towncart",
+        title: "TownCart",
+        caseHref: "/projects/towncart",
+        external: false,
+        category: "Social Media",
+        tag: "Paid Media",
+        tagline: "Smart ads, real results.",
+        metric: "₹15 CPL",
+        metricFoot: "1,200 leads on ₹18K spend",
+        featured: false,
+        tone: "white",
+        // TEMP: replace with real hero from graphic designer
+        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=1200&fit=crop&auto=format&q=80",
+      },
+      {
+        id: "ywi",
+        title: "Yellow Wall Interiors",
+        caseHref: "/projects/yellow-wall-interiors",
+        external: false,
+        category: "Social Media",
+        tag: "Organic Growth",
+        tagline: "From content to consistent organic leads.",
+        metric: "10K",
+        metricFoot: "followers · 1 month",
+        featured: false,
+        tone: "amber",
+        image: "/ywi-interior.jpeg",
+      },
+      {
+        id: "one-day-stories",
+        title: "One Day Stories",
+        caseHref: "/projects/one-day-stories",
+        external: false,
+        category: "Social Media",
+        tag: "Performance",
+        tagline: "Performance marketing for boutique wedding photography.",
+        metric: "10 weddings",
+        metricFoot: "1M account reach",
+        featured: true, // ★ F2 — cols 3-4
+        tone: "orange",
+        // TEMP: replace with real hero from graphic designer
+        image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1800&h=1200&fit=crop&auto=format&q=80",
+      },
+
+      // ── Row 3 ── Featured on the left again, then two standards
+      {
+        id: "lumeria-ecom",
+        title: "Lumeria Skincare",
+        caseHref: "/projects/lumeria",
+        external: false,
+        category: "Software",
+        tag: "E-commerce Build",
+        tagline: "Full custom e-commerce — shipped live.",
+        metric: "Live",
+        metricFoot: "lumeriaskincare.com",
+        featured: true, // ★ F3 — cols 1-2
+        tone: "orange",
+        // TEMP: e-commerce device mockup placeholder — product bottles reserved
+        // for the Lumeria case study. Swap for a real Lumeria site screenshot
+        // once the graphic designer delivers.
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1800&h=1200&fit=crop&auto=format&q=80",
+      },
+      {
+        id: "flexcellence",
+        title: "Flexcellence",
+        caseHref: "/projects/flexcellence",
+        external: false,
+        category: "Influencer",
+        tag: "Awareness",
+        tagline: "Fitness app made everyday-relatable.",
+        metric: "9–15",
+        metricFoot: "creators · 2 months",
+        featured: false,
+        tone: "white",
+        // TEMP: replace with real hero from graphic designer
+        image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&h=1200&fit=crop&auto=format&q=80",
+      },
+      {
+        id: "sri-rudra-franchise",
+        title: "Sri Rudra",
+        caseHref: "/projects/sri-rudra-social",
+        external: false,
+        category: "Social Media",
+        tag: "Franchise Growth",
+        tagline: "Turning content into franchise growth.",
+        metric: "13 franchises",
+        metricFoot: "closed in 3 months",
+        featured: false,
+        tone: "orange",
+        image: "/assets/sri-rudra/temple-hero.png",
+      },
+
+      // ── Row 4 ── Two trailing standards
+      {
+        id: "sufala",
+        title: "Sufala",
+        caseHref: "https://www.sufala.in/",
+        external: true,
+        category: "Software",
+        tag: "E-commerce Build",
+        tagline: "Custom e-commerce store, end-to-end.",
+        metric: "Live",
+        metricFoot: "sufala.in",
+        featured: false,
+        tone: "white",
+        // TEMP: replace with real hero from graphic designer
+        image: "https://images.unsplash.com/photo-1571867424488-4565932edb41?w=1200&h=1200&fit=crop&auto=format&q=80",
+      },
+      {
+        id: "ramesh-makeup",
+        title: "Ramesh Makeup Studio",
+        caseHref: "#",
+        external: true,
+        category: "Software",
+        tag: "Custom App",
+        tagline: "Studio ops app, built for a beauty studio.",
+        metric: "App",
+        metricFoot: "shipped for studio ops",
+        featured: false,
+        tone: "amber",
+        // TEMP: replace with real hero from graphic designer
+        image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&h=1200&fit=crop&auto=format&q=80",
+      },
+    ],
+  },
+
+  // ── Services (3 pillars — matches brief) ────────────
+  services: {
+    kicker: "Capabilities",
+    heading: "Three disciplines. One accountable team.",
+    items: [
+      {
+        num: "01",
+        title: "Social Media Marketing",
+        desc: "Content strategy, performance creative, and paid media that compound into real business outcomes. We make the reel, run the ads, and measure what moved.",
+        tags: ["Reels", "Performance creative", "Content funnels", "Paid media"],
+      },
+      {
+        num: "02",
+        title: "Software Projects",
+        desc: "Custom e-commerce builds, web apps, and studio-grade websites — shipped end-to-end with analytics and CRO built in from day one.",
+        tags: ["E-commerce", "React / Next.js", "Analytics", "CRO"],
+      },
+      {
+        num: "03",
+        title: "Influencer Marketing",
+        desc: "Creator-mix strategy from high-reach to niche — structured campaigns that drive awareness and revenue, not vanity. Attribution included.",
+        tags: ["Creator strategy", "Campaign ops", "UGC", "Attribution"],
+      },
+    ],
+  },
+
+  // ── Final CTA card ──────────────────────────────────
+  finalCTA: {
+    kicker: "Your move",
+    heading: "Got something worth growing?",
+    body:
+      "Tell us what you're launching, growing, or shipping. We'll reply within a business day with a shortlist of what we'd actually do first.",
+    primaryCTA: { label: "Start Your Growth Sprint", to: "/contact" },
+    email: {
+      label: "info@vasishtha.co",
+      href: "mailto:info@vasishtha.co",
+    },
+  },
+
+  // ── Footer ──────────────────────────────────────────
+  footer: {
+    tagline: "Performance-driven digital studio. Built in India, booking globally.",
+    columns: [
+      {
+        title: "Studio",
+        links: [
+          { label: "Work", to: "#portfolio", scroll: true },
+          { label: "Services", to: "#services", scroll: true },
+          { label: "Book a Call", to: "/contact" },
+        ],
+      },
+      {
+        title: "Case studies",
+        links: [
+          { label: "Sri Rudra — Franchise", to: "/projects/sri-rudra-social" },
+          { label: "Sri Rudra — Ganesh", to: "/projects/sri-rudra-influencer" },
+          { label: "Lumeria", to: "/projects/lumeria" },
+          { label: "One Day Stories", to: "/projects/one-day-stories" },
+          { label: "TownCart", to: "/projects/towncart" },
+          { label: "Yellow Wall Interiors", to: "/projects/yellow-wall-interiors" },
+          { label: "Flexcellence", to: "/projects/flexcellence" },
+          { label: "Handover Expert", to: "/projects/handover-expert" },
+        ],
+      },
+      {
+        title: "Reach",
+        links: [
+          { label: "info@vasishtha.co", href: "mailto:info@vasishtha.co" },
+          { label: "Instagram", href: "https://www.instagram.com/vasishtha_digital_solutions/" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/company/vasishtha-digital-solutions/" },
+        ],
+      },
+    ],
+    copyright: "© 2026 Vasishtha Digital Solutions. Made in India.",
+  },
+}
