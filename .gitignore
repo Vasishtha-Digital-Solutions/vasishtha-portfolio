@@ -27,6 +27,7 @@ npm-debug.log*
 *.mov
 *.avi
 *.webm
+public/assets/sri-rudra/reels/web/
 
 # Screenshots (local dev tool output)
 temporary screenshots/
