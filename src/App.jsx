@@ -18,6 +18,7 @@ import YWICase from "./pages/YWICase"
 import FlexcellenceCase from "./pages/FlexcellenceCase"
 import HandoverExpertCase from "./pages/HandoverExpertCase"
 import OneDayStoriesCase from "./pages/OneDayStoriesCase"
+import NotFound from "./pages/NotFound"
 
 /**
  * ScrollToTop — resets window scroll to 0 on every route change.
@@ -61,6 +62,9 @@ export default function App() {
         <Route path="/projects/flexcellence" element={<FlexcellenceCase />} />
         <Route path="/projects/handover-expert" element={<HandoverExpertCase />} />
         <Route path="/projects/one-day-stories" element={<OneDayStoriesCase />} />
+
+        {/* 404 — always last */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
