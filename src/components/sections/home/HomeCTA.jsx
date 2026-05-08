@@ -40,9 +40,14 @@ export default function HomeCTA() {
           className="relative overflow-hidden border text-center"
           style={{
             background: palette.bg2,
-            borderColor: palette.border,
+            borderColor: "rgba(241,143,0,0.2)",
             borderRadius: 36,
             padding: "clamp(3.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4rem)",
+            boxShadow: `
+              0 0 0 1px rgba(241,143,0,0.12),
+              0 8px 48px rgba(241,143,0,0.1),
+              0 0 100px rgba(255,178,76,0.06)
+            `,
           }}
         >
           {/* ── Background layers ── */}
