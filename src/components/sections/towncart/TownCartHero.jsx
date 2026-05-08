@@ -125,7 +125,7 @@ export default function TownCartHero({ data }) {
       {/* ─── Minimal back-link nav (matches Lumeria pattern) ─── */}
       <nav className="absolute top-0 left-0 right-0 z-50 px-6 md:px-10 py-3.5 flex items-center justify-between">
         <Link
-          to="/projects"
+          to="/#portfolio"
           className="inline-flex items-center gap-2 text-sm transition-colors"
           style={{
             fontFamily: "'JetBrains Mono', monospace",

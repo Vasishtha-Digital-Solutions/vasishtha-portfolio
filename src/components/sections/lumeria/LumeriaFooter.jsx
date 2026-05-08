@@ -200,7 +200,7 @@ export default function LumeriaFooter({ data }) {
 
           {/* All projects link */}
           <Link
-            to="/projects"
+            to="/#portfolio"
             className="text-[0.78rem] font-medium text-[#8b7340] hover:text-[#2a2012] transition-colors"
           >
             All Projects →
