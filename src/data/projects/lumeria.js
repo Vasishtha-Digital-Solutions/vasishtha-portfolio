@@ -123,6 +123,7 @@ export const lumeriaData = {
         phoneHeight: 340,
         color: "#daa520",
         engagement: { likes: "2.4K", shares: "890", saves: "156" },
+        reel: "https://res.cloudinary.com/dqwbrgtay/video/upload/q_auto,f_auto/v1778231209/lumeria-reel-2_zblqha.mp4",
       },
       {
         id: "m2",
@@ -133,6 +134,7 @@ export const lumeriaData = {
         phoneHeight: 370,
         color: "#c9a84c",
         engagement: { likes: "4.1K", shares: "1.2K", saves: "310" },
+        reel: "https://res.cloudinary.com/dqwbrgtay/video/upload/q_auto,f_auto/v1778231207/lumeria-reel-3_ajngxz.mp4",
       },
       {
         id: "m3",
@@ -143,6 +145,7 @@ export const lumeriaData = {
         phoneHeight: 400,
         color: "#d4a843",
         engagement: { likes: "7.8K", shares: "2.4K", saves: "890" },
+        reel: "https://res.cloudinary.com/dqwbrgtay/video/upload/q_auto,f_auto/v1778231242/lumeria-reel-4_o3e3bg.mp4",
       },
       {
         id: "launch",
@@ -154,6 +157,7 @@ export const lumeriaData = {
         color: "#ffd700",
         engagement: { likes: "18.6K", shares: "5.7K", saves: "2.1K" },
         isLaunch: true,
+        reel: "https://res.cloudinary.com/dqwbrgtay/video/upload/q_auto,f_auto/v1778231209/lumeria-reel-1_aswip7.mp4",
       },
     ],
   },
