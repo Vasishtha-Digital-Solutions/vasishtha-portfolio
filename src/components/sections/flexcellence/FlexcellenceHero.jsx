@@ -65,7 +65,7 @@ export default function FlexcellenceHero({ data }) {
         }}
       >
         <Link
-          to="/projects"
+          to="/#portfolio"
           className="inline-flex items-center gap-2 transition-colors"
           style={{
             fontSize: 12,

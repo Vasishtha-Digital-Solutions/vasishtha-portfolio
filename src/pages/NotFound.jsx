@@ -292,7 +292,7 @@ export default function NotFound() {
 
           {/* Secondary — ghost border */}
           <Link
-            to="/projects"
+            to="/#portfolio"
             className="group inline-flex items-center gap-2 rounded-full border px-6 py-3.5 text-sm font-medium transition-all hover:border-white/25 md:text-[15px]"
             style={{
               borderColor: p.border,

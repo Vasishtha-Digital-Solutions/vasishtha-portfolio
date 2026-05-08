@@ -106,7 +106,8 @@ export const homeData = {
         metricFoot: "on ₹3L spend · 4M+ reach",
         featured: true, // ★ F1 — cols 1-2
         tone: "orange",
-        image: "/assets/sri-rudra/ganesh-idol.png",
+        image: "/assets/Portfolio_Banners/sri-rudra-ganesh.jpg",
+        imagePosition: "center 30%",
       },
       {
         id: "handover-expert",
@@ -120,8 +121,8 @@ export const homeData = {
         metricFoot: "built in Hyderabad",
         featured: false,
         tone: "amber",
-        // TEMP: replace with real hero from graphic designer
-        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&h=1200&fit=crop&auto=format&q=80",
+        image: "/assets/Portfolio_Banners/handover-experts.jpg",
+        imagePosition: "left top",
       },
       {
         id: "lumeria-social",
@@ -135,9 +136,8 @@ export const homeData = {
         metricFoot: "pre-launch runway",
         featured: false,
         tone: "amber",
-        // TEMP: skincare lifestyle placeholder — product bottles are reserved
-        // for the Lumeria case study, so using a generic beauty flatlay here.
-        image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&h=1200&fit=crop&auto=format&q=80",
+        image: "/assets/Portfolio_Banners/lumeria-square.jpg",
+        imagePosition: "center center",
       },
 
       // ── Row 2 ── Two standards + Featured on the right
@@ -153,8 +153,8 @@ export const homeData = {
         metricFoot: "1,200 leads on ₹18K spend",
         featured: false,
         tone: "white",
-        // TEMP: replace with real hero from graphic designer
-        image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=1200&fit=crop&auto=format&q=80",
+        image: "/assets/Portfolio_Banners/towncart.jpg",
+        imagePosition: "center center",
       },
       {
         id: "ywi",
@@ -168,7 +168,8 @@ export const homeData = {
         metricFoot: "followers · 1 month",
         featured: false,
         tone: "amber",
-        image: "/ywi-interior.jpeg",
+        image: "/assets/Portfolio_Banners/ywi.jpg",
+        imagePosition: "center center",
       },
       {
         id: "one-day-stories",
@@ -182,8 +183,8 @@ export const homeData = {
         metricFoot: "1M account reach",
         featured: true, // ★ F2 — cols 3-4
         tone: "orange",
-        // TEMP: replace with real hero from graphic designer
-        image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1800&h=1200&fit=crop&auto=format&q=80",
+        image: "/assets/Portfolio_Banners/one-day-stories.jpg",
+        imagePosition: "center center",
       },
 
       // ── Row 3 ── Featured on the left again, then two standards
@@ -199,10 +200,8 @@ export const homeData = {
         metricFoot: "lumeriaskincare.com",
         featured: true, // ★ F3 — cols 1-2
         tone: "orange",
-        // TEMP: e-commerce device mockup placeholder — product bottles reserved
-        // for the Lumeria case study. Swap for a real Lumeria site screenshot
-        // once the graphic designer delivers.
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1800&h=1200&fit=crop&auto=format&q=80",
+        image: "/assets/Portfolio_Banners/lumeria-wide.jpg",
+        imagePosition: "center top",
       },
       {
         id: "flexcellence",
@@ -216,8 +215,8 @@ export const homeData = {
         metricFoot: "creators · 2 months",
         featured: false,
         tone: "white",
-        // TEMP: replace with real hero from graphic designer
-        image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&h=1200&fit=crop&auto=format&q=80",
+        image: "/assets/Portfolio_Banners/flexcellence.jpg",
+        imagePosition: "center center",
       },
       {
         id: "sri-rudra-franchise",
@@ -231,7 +230,8 @@ export const homeData = {
         metricFoot: "closed in 3 months",
         featured: false,
         tone: "orange",
-        image: "/assets/sri-rudra/temple-hero.png",
+        image: "/assets/Portfolio_Banners/sri-rudra-franchise.jpg",
+        imagePosition: "center center",
       },
 
       // ── Row 4 ── Two trailing standards
@@ -247,8 +247,8 @@ export const homeData = {
         metricFoot: "sufala.in",
         featured: false,
         tone: "white",
-        // TEMP: replace with real hero from graphic designer
-        image: "https://images.unsplash.com/photo-1571867424488-4565932edb41?w=1200&h=1200&fit=crop&auto=format&q=80",
+        image: "/assets/Portfolio_Banners/sufala.jpg",
+        imagePosition: "center center",
       },
       {
         id: "ramesh-makeup",
@@ -262,8 +262,8 @@ export const homeData = {
         metricFoot: "shipped for studio ops",
         featured: false,
         tone: "amber",
-        // TEMP: replace with real hero from graphic designer
-        image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&h=1200&fit=crop&auto=format&q=80",
+        image: "/assets/Portfolio_Banners/ramesh-makeup.jpg",
+        imagePosition: "center center",
       },
     ],
   },

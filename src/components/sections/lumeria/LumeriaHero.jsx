@@ -71,7 +71,7 @@ export default function LumeriaHero({ data }) {
       {/* ─── Fixed nav ─── */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-3.5 flex items-center justify-between bg-[rgba(245,237,224,0.9)] backdrop-blur-xl border-b border-[rgba(42,32,18,0.06)]">
         <Link
-          to="/projects"
+          to="/#portfolio"
           className="flex items-center gap-2 text-[rgba(42,32,18,0.4)] text-sm hover:text-[rgba(42,32,18,0.7)] transition-colors"
         >
           <ArrowLeft size={16} />

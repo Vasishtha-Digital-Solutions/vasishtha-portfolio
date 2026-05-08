@@ -51,7 +51,7 @@ export default function SriRudraHero({ data }) {
       {/* Fixed nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-8 py-3.5 flex items-center justify-between bg-[rgba(26,10,10,0.92)] backdrop-blur-xl border-b border-[rgba(184,134,11,0.08)]">
         <Link
-          to="/projects"
+          to="/#portfolio"
           className="flex items-center gap-2 text-[rgba(245,230,211,0.35)] text-sm hover:text-[rgba(245,230,211,0.6)] transition-colors"
         >
           <ArrowLeft size={16} />

@@ -116,7 +116,7 @@ export default function SriRudraFooter({ data }) {
             </span>
           </div>
           <Link
-            to="/projects"
+            to="/#portfolio"
             className="text-[0.75rem] text-[rgba(245,230,211,0.25)] hover:text-[rgba(245,230,211,0.5)] transition-colors"
           >
             All Projects

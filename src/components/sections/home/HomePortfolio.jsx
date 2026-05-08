@@ -208,7 +208,7 @@ function PortfolioCard({ project, index, total, palette }) {
             src={project.image}
             alt={project.title}
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.08]"
-            style={{ opacity: 0.9 }}
+            style={{ opacity: 0.9, objectPosition: project.imagePosition || "center center" }}
             loading="lazy"
             draggable={false}
             onError={() => setImgError(true)}

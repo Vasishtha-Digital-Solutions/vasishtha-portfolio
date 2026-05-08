@@ -177,7 +177,7 @@ export default function OneDayHero({ data }) {
         }}
       >
         <Link
-          to="/projects"
+          to="/#portfolio"
           style={{
             display: "flex",
             alignItems: "center",
