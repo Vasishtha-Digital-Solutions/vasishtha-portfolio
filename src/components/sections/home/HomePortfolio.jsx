@@ -1,16 +1,11 @@
 // ──────────────────────────────────────────────────────────────
 // Home — PORTFOLIO (Section 3)
-// Filterable bento — 11 cards (3 featured col-span-2).
-// Filter pill slides via layoutId; cards use AnimatePresence
-// popLayout + layout prop for spring re-ordering on filter.
-// Hover: image zoom + centered "View Case Study" / "Visit Site"
-// pill. Cards without real images get a tone-tinted gradient
-// with a ghost first-letter glyph.
+// Bento grid — 11 cards (3 featured col-span-2).
+// Cards: taller, cleaner scrim, tagline visible, no index counter.
 // ──────────────────────────────────────────────────────────────
 
 import { useState } from "react"
 import { Link } from "react-router-dom"
-// (useState above is already imported for filter state; reused for imgError below)
 import {
   motion,
   AnimatePresence,
@@ -21,7 +16,6 @@ import { homeData } from "../../../data/home"
 
 const EASE = [0.22, 1, 0.36, 1]
 
-// ── Header reveal ───────────────────────────────────────────
 const revealUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -45,7 +39,8 @@ export default function HomePortfolio() {
       style={{ background: palette.bg, color: palette.text }}
     >
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-24 md:pt-24 md:pb-32">
-        {/* ── Header ────────────────────────────────────── */}
+
+        {/* ── Header ──────────────────────────────────────── */}
         <motion.span
           {...revealUp(0)}
           className="block text-[11px]"
@@ -72,7 +67,7 @@ export default function HomePortfolio() {
           {portfolio.heading}
         </motion.h2>
 
-        {/* ── Filter pills (sliding indicator via layoutId) ── */}
+        {/* ── Filter pills ────────────────────────────────── */}
         <motion.div
           {...revealUp(0.2)}
           className="mt-10 flex flex-wrap items-center"
@@ -94,8 +89,7 @@ export default function HomePortfolio() {
                     onClick={() => setActive(f)}
                     className="relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-colors md:text-sm"
                     style={{
-                      fontFamily:
-                        "'Plus Jakarta Sans', system-ui, sans-serif",
+                      fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
                       color: isActive ? "#0a0a0a" : palette.textDim,
                     }}
                   >
@@ -106,22 +100,14 @@ export default function HomePortfolio() {
                         style={{
                           background: `linear-gradient(90deg, ${palette.orange}, ${palette.amber})`,
                         }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
                     <span className="relative z-10">{f}</span>
-                    {/* Count badge (only on All — avoids visual clutter) */}
                     {f === "All" && (
                       <span
                         className="relative z-10 text-[10px]"
-                        style={{
-                          opacity: isActive ? 0.6 : 0.4,
-                          letterSpacing: "0.1em",
-                        }}
+                        style={{ opacity: isActive ? 0.6 : 0.4, letterSpacing: "0.1em" }}
                       >
                         {portfolio.projects.length}
                       </span>
@@ -133,45 +119,38 @@ export default function HomePortfolio() {
           </LayoutGroup>
         </motion.div>
 
-        {/* ── Bento grid ─────────────────────────────────── */}
+        {/* ── Bento grid ──────────────────────────────────── */}
         <motion.div
           layout
           className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-4"
         >
           <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
+            {filtered.map((project) => (
               <PortfolioCard
                 key={project.id}
                 project={project}
-                index={portfolio.projects.indexOf(project)}
-                total={portfolio.projects.length}
                 palette={palette}
               />
             ))}
           </AnimatePresence>
         </motion.div>
+
       </div>
     </section>
   )
 }
 
 /* ═════════════════════════════════════════════════════════════
-   PortfolioCard — single bento tile
+   PortfolioCard
    ═════════════════════════════════════════════════════════════ */
-function PortfolioCard({ project, index, total, palette }) {
-  // imgError flips true if a remote placeholder URL fails to load — the
-  // card then falls back to the tone-tinted gradient + ghost-letter.
+function PortfolioCard({ project, palette }) {
   const [imgError, setImgError] = useState(false)
   const hasImage = Boolean(project.image) && !imgError
 
   const toneColor =
-    {
-      orange: palette.orange,
-      amber: palette.amber,
-      white: palette.white,
-    }[project.tone] || palette.orange
-
-  const hoverLabel = project.external ? "Visit Site" : "View Case Study"
+    { orange: palette.orange, amber: palette.amber, white: palette.white }[
+      project.tone
+    ] || palette.orange
 
   const Wrapper = project.external ? "a" : Link
   const wrapperProps = project.external
@@ -198,23 +177,23 @@ function PortfolioCard({ project, index, total, palette }) {
       style={{
         background: palette.card,
         borderColor: palette.border,
-        minHeight: project.featured ? 380 : 280,
+        minHeight: project.featured ? 430 : 340,
       }}
     >
       <Wrapper {...wrapperProps} className="block h-full w-full">
-        {/* ── Background layer ── */}
+
+        {/* ── Background image ── */}
         {hasImage ? (
           <img
             src={project.image}
             alt={project.title}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.08]"
-            style={{ opacity: 0.9, objectPosition: project.imagePosition || "center center" }}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+            style={{ objectPosition: project.imagePosition || "center center" }}
             loading="lazy"
             draggable={false}
             onError={() => setImgError(true)}
           />
         ) : (
-          // No-image fallback: tone-tinted radial + ghost letterform
           <>
             <div
               aria-hidden
@@ -239,8 +218,7 @@ function PortfolioCard({ project, index, total, palette }) {
               style={{
                 right: "-4%",
                 bottom: "-18%",
-                fontFamily:
-                  "'Plus Jakarta Sans', system-ui, sans-serif",
+                fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
                 fontSize: project.featured ? "22rem" : "16rem",
                 fontWeight: 800,
                 color: toneColor,
@@ -254,97 +232,86 @@ function PortfolioCard({ project, index, total, palette }) {
           </>
         )}
 
-        {/* ── Tone tint overlay (on top of image) ── */}
+        {/* ── Tone overlay ── */}
         {hasImage && (
           <div
             aria-hidden
             className="absolute inset-0"
-            style={{
-              background: toneColor,
-              opacity: 0.1,
-              mixBlendMode: "overlay",
-            }}
+            style={{ background: toneColor, opacity: 0.08, mixBlendMode: "overlay" }}
           />
         )}
 
-        {/* ── Darken scrim (bottom → top, for text legibility) ── */}
+        {/* ── Scrim: deeper and more gradual for tagline readability ── */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 25%, rgba(0,0,0,0.1) 55%, transparent 75%)`,
+            background: `linear-gradient(
+              to top,
+              rgba(0,0,0,0.96) 0%,
+              rgba(0,0,0,0.82) 20%,
+              rgba(0,0,0,0.52) 38%,
+              rgba(0,0,0,0.16) 55%,
+              transparent 68%
+            )`,
           }}
         />
 
-        {/* ── Top-right index counter ── */}
-        <span
-          className="absolute top-5 right-5"
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 10,
-            letterSpacing: "0.24em",
-            color: "rgba(255,255,255,0.45)",
-          }}
-        >
-          {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-        </span>
-
-        {/* ── Hover pill (centered, backdrop blur) — appears on mouse-over only ── */}
-        <div
-          className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          style={{
-            background: "rgba(0,0,0,0.35)",
-            backdropFilter: "blur(6px)",
-            WebkitBackdropFilter: "blur(6px)",
-          }}
-        >
+        {/* ── Category badge — top-left ── */}
+        <div className="absolute top-5 left-5">
           <span
-            className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold translate-y-2 transition-transform duration-300 group-hover:translate-y-0"
+            className="rounded-full border px-2.5 py-1 text-[9px] backdrop-blur-sm"
             style={{
-              color: "#0a0a0a",
-              fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-              boxShadow: "0 8px 24px rgba(0,0,0,0.45)",
+              borderColor: "rgba(255,255,255,0.18)",
+              background: "rgba(0,0,0,0.4)",
+              color: toneColor,
+              fontFamily: "'JetBrains Mono', monospace",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
             }}
           >
-            {hoverLabel}
-            <ArrowUpRight size={14} strokeWidth={2.5} />
+            {project.category}
+          </span>
+        </div>
+
+        {/* ── Hover CTA — top-right ── */}
+        <div className="absolute top-5 right-5 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+          <span
+            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[10px] font-semibold backdrop-blur-sm"
+            style={{
+              background: `linear-gradient(90deg, ${palette.orange}, ${palette.amber})`,
+              color: "#0a0a0a",
+              fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
+            }}
+          >
+            {project.external ? "Visit Site" : "View Study"}
+            <ArrowUpRight size={10} strokeWidth={2.5} />
           </span>
         </div>
 
         {/* ── Bottom meta block ── */}
         <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-          {/* Category pill + tag label */}
-          <div className="mb-3 flex items-center gap-2">
-            <span
-              className="rounded-full border px-2.5 py-1 text-[9px] backdrop-blur-sm"
-              style={{
-                borderColor: "rgba(255,255,255,0.18)",
-                background: "rgba(0,0,0,0.35)",
-                color: "rgba(255,255,255,0.85)",
-                fontFamily: "'JetBrains Mono', monospace",
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-              }}
-            >
-              {project.category}
-            </span>
-            <span
-              className="text-xs"
-              style={{ color: "rgba(255,255,255,0.55)" }}
-            >
-              · {project.tag}
-            </span>
-          </div>
+
+          {/* Tag */}
+          <p
+            className="mb-2 text-[10px] uppercase"
+            style={{
+              color: "rgba(255,255,255,0.5)",
+              fontFamily: "'JetBrains Mono', monospace",
+              letterSpacing: "0.2em",
+            }}
+          >
+            {project.tag}
+          </p>
 
           {/* Title */}
           <h3
-            className="font-extrabold"
+            className="font-extrabold leading-tight"
             style={{
               fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
               fontSize: project.featured
                 ? "clamp(1.5rem, 2.3vw, 2.1rem)"
                 : "clamp(1.15rem, 1.6vw, 1.45rem)",
-              lineHeight: 1.1,
               letterSpacing: "-0.02em",
               color: palette.white,
             }}
@@ -355,18 +322,18 @@ function PortfolioCard({ project, index, total, palette }) {
           {/* Tagline */}
           <p
             className="mt-1.5 max-w-md text-sm leading-snug"
-            style={{ color: "rgba(255,255,255,0.62)" }}
+            style={{ color: "rgba(255,255,255,0.68)" }}
           >
             {project.tagline}
           </p>
 
           {/* Metric row */}
-          <div className="mt-4 flex items-baseline gap-2">
+          <div className="mt-3 flex items-baseline gap-2">
             <span
               className="font-extrabold"
               style={{
                 fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif",
-                fontSize: project.featured ? "1.6rem" : "1.3rem",
+                fontSize: project.featured ? "1.7rem" : "1.4rem",
                 color: toneColor,
                 letterSpacing: "-0.015em",
                 lineHeight: 1,
@@ -377,7 +344,7 @@ function PortfolioCard({ project, index, total, palette }) {
             <span
               className="text-xs"
               style={{
-                color: "rgba(255,255,255,0.5)",
+                color: "rgba(255,255,255,0.45)",
                 fontFamily: "'JetBrains Mono', monospace",
                 letterSpacing: "0.08em",
               }}
@@ -386,6 +353,7 @@ function PortfolioCard({ project, index, total, palette }) {
             </span>
           </div>
         </div>
+
       </Wrapper>
     </motion.article>
   )
