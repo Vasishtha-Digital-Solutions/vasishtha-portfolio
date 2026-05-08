@@ -78,14 +78,28 @@ export default function HomeServices() {
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
           variants={containerVariants}
-          className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border md:mt-20 md:grid-cols-3"
+          className="relative mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border md:mt-20 md:grid-cols-3"
           style={{
             borderColor: palette.border,
-            // Wrapper bg = the divider color so the gap-px lines render
-            // as hairline separators between cards.
             background: palette.border,
           }}
         >
+          {/* Top-edge gradient — 1px sharp line + soft descending glow */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px"
+            style={{
+              background: `linear-gradient(90deg, transparent 0%, ${palette.orange} 25%, ${palette.amber} 75%, transparent 100%)`,
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 z-10 h-20"
+            style={{
+              background: `linear-gradient(to bottom, ${palette.orange}1a 0%, transparent 100%)`,
+            }}
+          />
+
           {services.items.map((service, i) => (
             <ServiceCard
               key={service.num}
