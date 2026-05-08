@@ -252,7 +252,7 @@ export default function HandoverHero({ data }) {
       >
         {/* Brand cell — back link + star + wordmark */}
         <Link
-          to="/projects"
+          to="/#portfolio"
           style={{
             display: "flex",
             alignItems: "center",

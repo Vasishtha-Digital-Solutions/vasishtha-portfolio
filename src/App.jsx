@@ -8,7 +8,6 @@ import {
 import Layout from "./components/layout/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Projects from "./pages/Projects"
 import Contact from "./pages/Contact"
 import SriRudraSocialCase from "./pages/SriRudraSocialCase"
 import SriRudraInfluencerCase from "./pages/SriRudraInfluencerCase"
@@ -48,10 +47,8 @@ export default function App() {
         {/* Contact: standalone (matches Home aesthetic, not the old Layout) */}
         <Route path="/contact" element={<Contact />} />
 
-        {/* Other pages keep the shared Layout (Navbar + Footer) until those get rebuilt */}
         <Route element={<Layout />}>
           <Route path="about" element={<About />} />
-          <Route path="projects" element={<Projects />} />
         </Route>
         {/* Case study pages — standalone layout (no shared nav/footer) */}
         <Route path="/projects/sri-rudra-social" element={<SriRudraSocialCase />} />
