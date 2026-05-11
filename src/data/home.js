@@ -253,8 +253,8 @@ export const homeData = {
       {
         id: "ramesh-makeup",
         title: "Ramesh Makeup Studio",
-        caseHref: "#",
-        external: true,
+        caseHref: "/projects/ramesh-makeup",
+        external: false,
         category: "Software",
         tag: "Custom App",
         tagline: "Studio ops app, built for a beauty studio.",

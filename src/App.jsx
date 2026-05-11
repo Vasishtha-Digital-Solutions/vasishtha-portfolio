@@ -17,6 +17,7 @@ import YWICase from "./pages/YWICase"
 import FlexcellenceCase from "./pages/FlexcellenceCase"
 import HandoverExpertCase from "./pages/HandoverExpertCase"
 import OneDayStoriesCase from "./pages/OneDayStoriesCase"
+import RameshCase from "./pages/RameshCase"
 import NotFound from "./pages/NotFound"
 
 /**
@@ -59,6 +60,7 @@ export default function App() {
         <Route path="/projects/flexcellence" element={<FlexcellenceCase />} />
         <Route path="/projects/handover-expert" element={<HandoverExpertCase />} />
         <Route path="/projects/one-day-stories" element={<OneDayStoriesCase />} />
+        <Route path="/projects/ramesh-makeup" element={<RameshCase />} />
 
         {/* 404 — always last */}
         <Route path="*" element={<NotFound />} />
