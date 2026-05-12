@@ -234,6 +234,7 @@ export const towncartData = {
       {
         id: "hook",
         variant: "hook",
+        reel: "https://res.cloudinary.com/dqwbrgtay/video/upload/q_auto,f_auto/v1778559136/tc-reel-1_apae6e.mp4",
         accountName: "TownCart",
         body: {
           label: "EARN",
@@ -250,6 +251,7 @@ export const towncartData = {
       {
         id: "proof",
         variant: "proof",
+        reel: "https://res.cloudinary.com/dqwbrgtay/video/upload/q_auto,f_auto/v1778559137/tc-reel-2_afvorc.mp4",
         accountName: "TownCart",
         body: {
           caption: {
@@ -266,6 +268,7 @@ export const towncartData = {
       {
         id: "cta",
         variant: "cta",
+        reel: "https://res.cloudinary.com/dqwbrgtay/video/upload/q_auto,f_auto/v1778559137/tc-reel-3_qnhrfc.mp4",
         accountName: "TownCart",
         body: {
           kicker: "NOW IN 8 TOWNS",
