@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useRef, useState, useCallback } from "react";
+import { Play, Volume2, VolumeX } from "lucide-react";
 import AisleSign from "./_shared/AisleSign";
 import PhoneFrame from "./_shared/PhoneFrame";
 
@@ -393,8 +395,72 @@ function AdBodyCTA({ body }) {
   );
 }
 
+// ── Ad video body — plays on hover, keeps header/footer chrome ──
+function AdBodyReel({ src }) {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const handleMouseEnter = useCallback(() => {
+    const v = videoRef.current;
+    if (v) { v.currentTime = 0; v.play().catch(() => {}); setIsPlaying(true); }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const v = videoRef.current;
+    if (v) { v.pause(); v.currentTime = 0; v.muted = true; setIsPlaying(false); setIsMuted(true); }
+  }, []);
+
+  const toggleMute = useCallback((e) => {
+    e.stopPropagation();
+    const v = videoRef.current;
+    if (v) { v.muted = !v.muted; setIsMuted(v.muted); }
+  }, []);
+
+  return (
+    <div
+      className="flex-1 relative overflow-hidden cursor-pointer group bg-[#1a1410]"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Play overlay — visible when paused */}
+      <div
+        className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 pointer-events-none"
+        style={{ opacity: isPlaying ? 0 : 1 }}
+      >
+        <div className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center border border-white/15">
+          <Play size={14} className="text-white/90 ml-0.5" fill="currentColor" />
+        </div>
+      </div>
+
+      {/* Mute toggle — bottom-right, appears on hover */}
+      <button
+        onClick={toggleMute}
+        className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-black/55 backdrop-blur-sm flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+        style={{ display: isPlaying ? undefined : "none" }}
+      >
+        {isMuted
+          ? <VolumeX size={11} className="text-white/80" />
+          : <Volume2 size={11} className="text-white/80" />
+        }
+      </button>
+    </div>
+  );
+}
+
 // ── Variant router ──────────────────────────────────────────
 function AdBody({ ad }) {
+  if (ad.reel) return <AdBodyReel src={ad.reel} />;
   if (ad.variant === "hook") return <AdBodyHook body={ad.body} />;
   if (ad.variant === "proof") return <AdBodyProof body={ad.body} />;
   return <AdBodyCTA body={ad.body} />;
