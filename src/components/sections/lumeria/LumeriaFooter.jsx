@@ -185,12 +185,12 @@ export default function LumeriaFooter({ data }) {
             to="/"
             className="flex items-center gap-2 group"
           >
-            <div className="w-[28px] h-[28px] rounded-lg bg-gradient-to-br from-[#2a2012] to-[#1a1508] flex items-center justify-center font-[Syne] text-[0.52rem] font-extrabold text-[#daa520]">
-              VDS
-            </div>
-            <span className="font-[Syne] text-[0.8rem] font-bold text-[#2a2012] group-hover:text-[#8b6914] transition-colors">
-              Vasishtha Digital Solutions
-            </span>
+            <img
+              src="/vasishtha-logo.png"
+              alt="Vasishtha Digital Solutions"
+              className="h-6 w-auto"
+              draggable={false}
+            />
           </Link>
 
           {/* Copyright */}

@@ -107,14 +107,12 @@ export default function SriRudraFooter({ data }) {
           custom={3}
           className="mt-20 pt-8 border-t border-[rgba(245,230,211,0.04)] flex items-center justify-between"
         >
-          <div className="flex items-center gap-2">
-            <div className="w-[26px] h-[26px] rounded-md bg-gradient-to-br from-[#B8860B] to-[#8B6914] flex items-center justify-center font-[Syne] text-[0.45rem] font-extrabold text-[#1a0a0a]">
-              VDS
-            </div>
-            <span className="font-[Syne] text-xs font-bold text-[rgba(245,230,211,0.4)]">
-              Vasishtha Digital Solutions
-            </span>
-          </div>
+          <img
+            src="/vasishtha-logo.png"
+            alt="Vasishtha Digital Solutions"
+            className="h-6 w-auto"
+            draggable={false}
+          />
           <Link
             to="/#portfolio"
             className="text-[0.75rem] text-[rgba(245,230,211,0.25)] hover:text-[rgba(245,230,211,0.5)] transition-colors"
