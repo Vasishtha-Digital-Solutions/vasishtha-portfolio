@@ -234,7 +234,7 @@ export const homeData = {
         imagePosition: "center center",
       },
 
-      // ── Row 4 ── Two trailing standards
+      // ── Row 4 ── Two standards + Featured ERP on the right
       {
         id: "sufala",
         title: "Sufala",
@@ -263,6 +263,22 @@ export const homeData = {
         featured: false,
         tone: "amber",
         image: "/assets/Portfolio_Banners/ramesh-makeup.jpg",
+        imagePosition: "center center",
+      },
+      {
+        id: "sri-rudra-erp",
+        title: "Sri Rudra",
+        caseHref: "/projects/sri-rudra-erp",
+        external: false,
+        category: "Software",
+        tag: "Custom ERP",
+        tagline: "The operating system behind 3,094 SKUs.",
+        metric: "9 modules",
+        metricFoot: "live · 60 employees daily",
+        featured: true, // ★ F4 — cols 3-4 (RIGHT, completes L-R-L-R rhythm)
+        tone: "orange",
+        // TODO: swap to a proper ERP banner once shot. Using a Sri Rudra brand image as placeholder so card doesn't break.
+        image: "/assets/Portfolio_Banners/sri-rudra-franchise.jpg",
         imagePosition: "center center",
       },
     ],
@@ -324,6 +340,7 @@ export const homeData = {
         links: [
           { label: "Sri Rudra — Franchise", to: "/projects/sri-rudra-social" },
           { label: "Sri Rudra — Ganesh", to: "/projects/sri-rudra-influencer" },
+          { label: "Sri Rudra — ERP", to: "/projects/sri-rudra-erp" },
           { label: "Lumeria", to: "/projects/lumeria" },
           { label: "One Day Stories", to: "/projects/one-day-stories" },
           { label: "TownCart", to: "/projects/towncart" },
