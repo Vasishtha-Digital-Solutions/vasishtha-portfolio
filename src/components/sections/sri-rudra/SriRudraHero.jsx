@@ -57,14 +57,12 @@ export default function SriRudraHero({ data }) {
           <ArrowLeft size={16} />
           All Projects
         </Link>
-        <div className="flex items-center gap-2">
-          <div className="w-[30px] h-[30px] rounded-lg bg-gradient-to-br from-[#B8860B] to-[#8B6914] flex items-center justify-center font-[Syne] text-[0.55rem] font-extrabold text-[#1a0a0a]">
-            VDS
-          </div>
-          <span className="font-[Syne] text-sm font-bold text-[#f5e6d3]">
-            Vasishtha
-          </span>
-        </div>
+        <img
+          src="/vasishtha-logo.png"
+          alt="Vasishtha Digital Solutions"
+          className="h-7 w-auto"
+          draggable={false}
+        />
       </nav>
 
       {/* Content */}

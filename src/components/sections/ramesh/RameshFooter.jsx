@@ -48,18 +48,12 @@ export default function RameshFooter({ data }) {
             transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
             className="text-center"
           >
-            <p
-              className="text-[10px] uppercase tracking-widest mb-1"
-              style={{ color: "rgba(255,255,255,0.25)", fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Built by
-            </p>
-            <p
-              className="text-sm font-semibold"
-              style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Vasishtha Digital Solutions
-            </p>
+            <img
+              src="/vasishtha-logo.png"
+              alt="Vasishtha Digital Solutions"
+              style={{ height: 28, width: "auto" }}
+              draggable={false}
+            />
           </motion.div>
 
           {/* Next case study */}
