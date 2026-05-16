@@ -11,6 +11,7 @@ import About from "./pages/About"
 import Contact from "./pages/Contact"
 import SriRudraSocialCase from "./pages/SriRudraSocialCase"
 import SriRudraInfluencerCase from "./pages/SriRudraInfluencerCase"
+import SriRudraERPCase from "./pages/SriRudraERPCase"
 import LumeriaCase from "./pages/LumeriaCase"
 import TownCartCase from "./pages/TownCartCase"
 import YWICase from "./pages/YWICase"
@@ -54,6 +55,7 @@ export default function App() {
         {/* Case study pages — standalone layout (no shared nav/footer) */}
         <Route path="/projects/sri-rudra-social" element={<SriRudraSocialCase />} />
         <Route path="/projects/sri-rudra-influencer" element={<SriRudraInfluencerCase />} />
+        <Route path="/projects/sri-rudra-erp" element={<SriRudraERPCase />} />
         <Route path="/projects/lumeria" element={<LumeriaCase />} />
         <Route path="/projects/towncart" element={<TownCartCase />} />
         <Route path="/projects/yellow-wall-interiors" element={<YWICase />} />

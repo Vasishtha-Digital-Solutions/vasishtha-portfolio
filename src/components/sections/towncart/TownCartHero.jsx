@@ -138,26 +138,12 @@ export default function TownCartHero({ data }) {
           <ArrowLeft size={14} />
           ALL PROJECTS
         </Link>
-        <div
-          className="flex items-center gap-2"
-          style={{ fontFamily: "'JetBrains Mono', monospace" }}
-        >
-          <div
-            className="w-[28px] h-[28px] rounded flex items-center justify-center"
-            style={{
-              background: "linear-gradient(135deg, #2d1f14, #1a1410)",
-              color: "#FFB84D",
-              fontSize: 10,
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-            }}
-          >
-            VDS
-          </div>
-          <span style={{ fontSize: 12, fontWeight: 700, color: "#1a1410", letterSpacing: "0.08em" }}>
-            Vasishtha
-          </span>
-        </div>
+        <img
+          src="/vasishtha-logo.png"
+          alt="Vasishtha Digital Solutions"
+          style={{ height: 28, width: "auto" }}
+          draggable={false}
+        />
       </nav>
 
       {/* ═══ Hero container ═══ */}
