@@ -277,8 +277,7 @@ export const homeData = {
         metricFoot: "live · 60 employees daily",
         featured: true, // ★ F4 — cols 3-4 (RIGHT, completes L-R-L-R rhythm)
         tone: "orange",
-        // TODO: swap to a proper ERP banner once shot. Using a Sri Rudra brand image as placeholder so card doesn't break.
-        image: "/assets/Portfolio_Banners/sri-rudra-franchise.jpg",
+        image: "/assets/Portfolio_Banners/sri-rudra-erp.svg",
         imagePosition: "center center",
       },
     ],

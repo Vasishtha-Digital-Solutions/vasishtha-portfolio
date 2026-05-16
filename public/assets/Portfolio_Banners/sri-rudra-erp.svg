@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000" fill="none">
+  <defs>
+    <linearGradient id="arc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB24C"/>
+      <stop offset="55%" stop-color="#F18F00"/>
+      <stop offset="100%" stop-color="#CC7700"/>
+    </linearGradient>
+    <radialGradient id="bloom" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F18F00" stop-opacity="0.22"/>
+      <stop offset="55%" stop-color="#F18F00" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#F18F00" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core" cx="38%" cy="32%" r="75%">
+      <stop offset="0%" stop-color="#1c1409"/>
+      <stop offset="100%" stop-color="#08080a"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#F18F00" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#0a0a0c"/>
+  <rect width="1400" height="1000" fill="url(#grid)"/>
+
+  <!-- Ambient bloom behind the loop -->
+  <rect x="40" y="-300" width="1320" height="1320" fill="url(#bloom)"/>
+
+  <!-- Atmospheric particles -->
+  <circle cx="240" cy="180" r="3" fill="#FFB24C" fill-opacity="0.3"/>
+  <circle cx="1180" cy="240" r="2.5" fill="#F18F00" fill-opacity="0.35"/>
+  <circle cx="1080" cy="640" r="3" fill="#FFB24C" fill-opacity="0.22"/>
+  <circle cx="360" cy="560" r="2" fill="#F18F00" fill-opacity="0.28"/>
+  <circle cx="990" cy="100" r="2" fill="#FFB24C" fill-opacity="0.25"/>
+
+  <!-- Outer dashed ring -->
+  <circle cx="700" cy="360" r="300" fill="none" stroke="#FFB24C" stroke-opacity="0.14"
+          stroke-width="1.5" stroke-dasharray="2 9"/>
+
+  <!-- Spokes from core to segment nodes (drawn before arcs/core so core disc covers the inner end) -->
+  <g stroke="#F18F00" stroke-opacity="0.22" stroke-width="1.5">
+    <line x1="700" y1="360" x2="880.32" y2="179.68"/>
+    <line x1="700" y1="360" x2="880.32" y2="540.32"/>
+    <line x1="700" y1="360" x2="519.68" y2="540.32"/>
+    <line x1="700" y1="360" x2="519.68" y2="179.68"/>
+  </g>
+
+  <!-- Segment-gap ticks -->
+  <g stroke="#F18F00" stroke-opacity="0.45" stroke-width="2.5" stroke-linecap="round">
+    <line x1="700" y1="120" x2="700" y2="88"/>
+    <line x1="940" y1="360" x2="972" y2="360"/>
+    <line x1="700" y1="600" x2="700" y2="632"/>
+    <line x1="460" y1="360" x2="428" y2="360"/>
+  </g>
+
+  <!-- Four loop arcs — Sourcing (top-right) is the focal/active segment -->
+  <g fill="none" stroke="url(#arc)" stroke-linecap="round">
+    <path d="M 954.38 377.79 A 255 255 0 0 1 717.79 614.38" stroke-width="8" stroke-opacity="0.72"/>
+    <path d="M 682.21 614.38 A 255 255 0 0 1 445.62 377.79" stroke-width="8" stroke-opacity="0.72"/>
+    <path d="M 445.62 342.21 A 255 255 0 0 1 682.21 105.62" stroke-width="8" stroke-opacity="0.72"/>
+    <path d="M 717.79 105.62 A 255 255 0 0 1 954.38 342.21" stroke-width="11.5" stroke-opacity="1"/>
+  </g>
+
+  <!-- Non-focal segment nodes -->
+  <g>
+    <circle cx="880.32" cy="540.32" r="8.5" fill="#FFB24C" fill-opacity="0.55"/>
+    <circle cx="880.32" cy="540.32" r="14" fill="none" stroke="#FFB24C" stroke-opacity="0.25" stroke-width="1.4"/>
+    <circle cx="519.68" cy="540.32" r="8.5" fill="#FFB24C" fill-opacity="0.55"/>
+    <circle cx="519.68" cy="540.32" r="14" fill="none" stroke="#FFB24C" stroke-opacity="0.25" stroke-width="1.4"/>
+    <circle cx="519.68" cy="179.68" r="8.5" fill="#FFB24C" fill-opacity="0.55"/>
+    <circle cx="519.68" cy="179.68" r="14" fill="none" stroke="#FFB24C" stroke-opacity="0.25" stroke-width="1.4"/>
+  </g>
+
+  <!-- Focal node on the Sourcing segment — glowing -->
+  <g>
+    <circle cx="880.32" cy="179.68" r="40" fill="#F18F00" fill-opacity="0.14"/>
+    <circle cx="880.32" cy="179.68" r="25" fill="#F18F00" fill-opacity="0.28"/>
+    <circle cx="880.32" cy="179.68" r="14" fill="#FFB24C"/>
+    <circle cx="880.32" cy="179.68" r="5.5" fill="#FFF4E0"/>
+  </g>
+
+  <!-- Centre core -->
+  <circle cx="700" cy="360" r="92" fill="url(#core)" stroke="#F18F00" stroke-opacity="0.42" stroke-width="1.6"/>
+  <circle cx="700" cy="360" r="70" fill="none" stroke="#F18F00" stroke-opacity="0.18"
+          stroke-width="1" stroke-dasharray="2 6"/>
+  <circle cx="700" cy="360" r="46" fill="none" stroke="#FFB24C" stroke-opacity="0.12" stroke-width="1"/>
+  <circle cx="700" cy="360" r="18" fill="#F18F00" fill-opacity="0.16"/>
+  <circle cx="700" cy="360" r="7" fill="#F18F00"/>
+  <circle cx="700" cy="360" r="2.5" fill="#FFF4E0"/>
+</svg>
